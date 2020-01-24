@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/d435.launch"/>
+  <node name="rs_detectnet" pkg="ros_deep_learning" type="rs_detectnet" args="/rs_detectnet/image_in:=/d435/color/image_raw" output="screen">
+    <param name="_model_name" value="ssd-mobilenet-v2"/>
+  </node>
+</launch>

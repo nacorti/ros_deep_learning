@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   vision_msgs
   std_msgs
 )
+find_package(OpenCV 4.0.1 COMPONENTS core calib3d REQUIRED)
 
 find_package(jetson-utils REQUIRED)
 find_package(jetson-inference REQUIRED)
@@ -46,6 +47,10 @@ target_link_libraries(detectnet ${catkin_LIBRARIES} jetson-inference)
 
 add_executable(segnet src/node_segnet.cpp src/image_converter.cpp)
 target_link_libraries(segnet ${catkin_LIBRARIES} jetson-inference)
+
+# custom inference nodes follow
+add_executable(rs_detectnet src/node_rs_detectnet.cpp src/image_converter.cpp)
+target_link_libraries(rs_detectnet ${catkin_LIBRARIES} jetson-inference)
 
 
 # the library we are going to compile (has all of the nodelets in it)

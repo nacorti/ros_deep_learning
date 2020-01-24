@@ -48,6 +48,11 @@ public:
 	bool Convert( const sensor_msgs::ImageConstPtr& input );
 
 	/**
+         * Convert to 32-bit RGBA floating point from D435 RGB8
+         */
+        bool Convert_RS( const sensor_msgs::ImageConstPtr& input );
+
+	/**
 	 * Convert to ROS sensor_msgs::Image message
 	 */
 	bool Convert( sensor_msgs::Image& msg_out, const std::string& encoding );
